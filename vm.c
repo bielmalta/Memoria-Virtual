@@ -31,6 +31,9 @@ signed char physical_memory[FRAME_COUNT][PAGE_SIZE];
 
 
 int next_free_frame = 0;
+int page_faults = 0;
+int translated_addresses = 0;
+
 
 void initialize_memory(void) {
     for (int i = 0; i < PAGE_COUNT; i++) {
@@ -50,6 +53,9 @@ void initialize_memory(void) {
 
     memset(physical_memory, 0, sizeof(physical_memory));
     next_free_frame = 0;
+
+    page_faults = 0;
+    translated_addresses = 0;
 }
 
 int load_page(FILE *backing_store, int page) {
@@ -89,6 +95,34 @@ int translate_address(int virtual_address, int frame) {
     int offset = virtual_address % PAGE_SIZE;
 
     return frame * PAGE_SIZE + offset;
+}
+
+
+int process_address(FILE *backing_store, int virtual_address) {
+    int page = get_page_number(virtual_address);
+    int frame;
+
+    if (page_table[page].valid) {
+        frame = page_table[page].frame;
+    } else {
+        frame = load_page(backing_store, page);
+
+        if (frame == -1) {
+            return -1;
+        }
+
+        page_faults++;
+    }
+
+    int physical_address = translate_address(virtual_address, frame);
+    int offset = get_offset(virtual_address);
+    int value = physical_memory[frame][offset];
+
+    translated_addresses++;
+
+    printf("Virtual address: %d Physical address: %d Value: %d\n", virtual_address, physical_address, value);
+
+    return 0;
 }
 
 
@@ -162,9 +196,43 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    fclose(arquivo);
+    
+    rewind(arquivo);
+
+    FILE *backing_store = fopen("BACKING_STORE.bin", "rb");
+
+    if (backing_store == NULL) {
+        fprintf(stderr, "Erro: nao foi possivel abrir BACKING_STORE.bin.\n");
+        fclose(arquivo);
+        return EXIT_FAILURE;
+    }
 
     initialize_memory();
 
+    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+        int endereco = (int)strtol(linha, NULL, 10);
+
+        if (process_address(backing_store, endereco) == -1) {
+            fprintf(stderr, "Erro: memoria fisica cheia.\n");
+            fclose(backing_store);
+            fclose(arquivo);
+            return EXIT_FAILURE;
+        }
+    }
+
+    if (ferror(arquivo)) {
+        fprintf(stderr, "Erro: falha na leitura dos enderecos.\n");
+        fclose(backing_store);
+        fclose(arquivo);
+        return EXIT_FAILURE;
+    }
+
+    printf("Number of Translated Addresses = %d\n", translated_addresses);
+    printf("Page Faults = %d\n", page_faults);
+
+    fclose(backing_store);
+    fclose(arquivo);
+
     return EXIT_SUCCESS;
+
 }
