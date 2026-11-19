@@ -31,6 +31,7 @@ signed char physical_memory[FRAME_COUNT][PAGE_SIZE];
 
 
 int next_free_frame = 0;
+int next_fifo_frame = 0;
 int page_faults = 0;
 int translated_addresses = 0;
 
@@ -56,28 +57,47 @@ void initialize_memory(void) {
 
     page_faults = 0;
     translated_addresses = 0;
+    next_fifo_frame = 0;
 }
 
-int load_page(FILE *backing_store, int page) {
-    if (next_free_frame >= FRAME_COUNT) {
-        return -1;
-    }
 
-    int frame = next_free_frame;
+int load_page(FILE *backing_store, int page, const char *algorithm) {
+    int frame;
+
+    if (next_free_frame < FRAME_COUNT) {
+        frame = next_free_frame;
+    } else {
+        if (strcmp(algorithm, "fifo") == 0) {
+            frame = next_fifo_frame;
+
+            next_fifo_frame = (next_fifo_frame + 1) % FRAME_COUNT;
+        } else {
+            return -1;
+        }
+
+        for (int i = 0; i < PAGE_COUNT; i++) {
+            if (page_table[i].valid && page_table[i].frame == frame) {
+                page_table[i].valid = 0;
+                page_table[i].frame = -1;
+                break;
+            }
+        }
+    }
 
     if (fseek(backing_store, page * PAGE_SIZE, SEEK_SET) != 0) {
         return -1;
     }
 
-    if (fread(physical_memory[frame], 1, PAGE_SIZE,
-              backing_store) != PAGE_SIZE) {
+    if (fread(physical_memory[frame], 1, PAGE_SIZE, backing_store) != PAGE_SIZE) {
         return -1;
     }
 
     page_table[page].frame = frame;
     page_table[page].valid = 1;
 
-    next_free_frame++;
+    if (next_free_frame < FRAME_COUNT) {
+        next_free_frame++;
+    }
 
     return frame;
 }
@@ -98,14 +118,14 @@ int translate_address(int virtual_address, int frame) {
 }
 
 
-int process_address(FILE *backing_store, int virtual_address) {
+int process_address(FILE *backing_store, int virtual_address, const char *algorithm) {
     int page = get_page_number(virtual_address);
     int frame;
 
     if (page_table[page].valid) {
         frame = page_table[page].frame;
     } else {
-        frame = load_page(backing_store, page);
+        frame = load_page(backing_store, page, algorithm);
 
         if (frame == -1) {
             return -1;
@@ -212,7 +232,7 @@ int main(int argc, char *argv[]) {
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
         int endereco = (int)strtol(linha, NULL, 10);
 
-        if (process_address(backing_store, endereco) == -1) {
+        if (process_address(backing_store, endereco, argv[2]) == -1) {
             fprintf(stderr, "Erro: memoria fisica cheia.\n");
             fclose(backing_store);
             fclose(arquivo);
