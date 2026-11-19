@@ -30,6 +30,68 @@ TLBEntry tlb[TLB_SIZE];
 signed char physical_memory[FRAME_COUNT][PAGE_SIZE];
 
 
+int next_free_frame = 0;
+
+void initialize_memory(void) {
+    for (int i = 0; i < PAGE_COUNT; i++) {
+        page_table[i].frame = -1;
+        page_table[i].valid = 0;
+        page_table[i].last_used = 0;
+        page_table[i].loaded_at = 0;
+    }
+
+    for (int i = 0; i < TLB_SIZE; i++) {
+        tlb[i].page = -1;
+        tlb[i].frame = -1;
+        tlb[i].valid = 0;
+        tlb[i].last_used = 0;
+        tlb[i].loaded_at = 0;
+    }
+
+    memset(physical_memory, 0, sizeof(physical_memory));
+    next_free_frame = 0;
+}
+
+int load_page(FILE *backing_store, int page) {
+    if (next_free_frame >= FRAME_COUNT) {
+        return -1;
+    }
+
+    int frame = next_free_frame;
+
+    if (fseek(backing_store, page * PAGE_SIZE, SEEK_SET) != 0) {
+        return -1;
+    }
+
+    if (fread(physical_memory[frame], 1, PAGE_SIZE,
+              backing_store) != PAGE_SIZE) {
+        return -1;
+    }
+
+    page_table[page].frame = frame;
+    page_table[page].valid = 1;
+
+    next_free_frame++;
+
+    return frame;
+}
+
+int get_page_number(int virtual_address) {
+    return virtual_address / PAGE_SIZE;
+}
+
+int get_offset(int virtual_address) {
+    return virtual_address % PAGE_SIZE;
+}
+
+
+int translate_address(int virtual_address, int frame) {
+    int offset = virtual_address % PAGE_SIZE;
+
+    return frame * PAGE_SIZE + offset;
+}
+
+
 int main(int argc, char *argv[]) {
     if (argc != 4) {
         fprintf(stderr, "Erro: numero de argumentos invalido.\n");
@@ -101,6 +163,8 @@ int main(int argc, char *argv[]) {
     }
 
     fclose(arquivo);
+
+    initialize_memory();
 
     return EXIT_SUCCESS;
 }
