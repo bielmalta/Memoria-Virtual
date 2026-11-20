@@ -113,10 +113,18 @@ int load_page(FILE *backing_store, int page, const char *algorithm) {
         return -1;
     }
 
+    
     for (int i = 0; i < PAGE_COUNT; i++) {
         if (page_table[i].valid && page_table[i].frame == frame) {
             page_table[i].valid = 0;
             page_table[i].frame = -1;
+
+            for (int j = 0; j < TLB_SIZE; j++) {
+                if (tlb[j].valid && tlb[j].page == i) {
+                    tlb[j].valid = 0;
+                }
+            }
+
             break;
         }
     }
@@ -161,17 +169,44 @@ int search_tlb(int page) {
     return -1;
 }
 
-void insert_tlb(int page, int frame) {
-    int index = next_tlb_entry;
+int select_lru_tlb(void) {
+    int index = -1;
+    unsigned long oldest_access = ULONG_MAX;
+
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (!tlb[i].valid) {
+            return i;
+        }
+
+        if (tlb[i].last_used < oldest_access) {
+            oldest_access = tlb[i].last_used;
+            index = i;
+        }
+    }
+
+    return index;
+}
+
+
+void insert_tlb(int page, int frame, const char *algorithm) {
+    int index;
+
+    if (strcmp(algorithm, "fifo") == 0) {
+        index = next_tlb_entry;
+        next_tlb_entry = (next_tlb_entry + 1) % TLB_SIZE;
+    } else {
+        index = select_lru_tlb();
+    }
 
     tlb[index].page = page;
     tlb[index].frame = frame;
     tlb[index].valid = 1;
-
-    next_tlb_entry = (next_tlb_entry + 1) % TLB_SIZE;
+    tlb[index].loaded_at = access_counter;
+    tlb[index].last_used = access_counter;
 }
 
-int process_address(FILE *backing_store, int virtual_address, const char *algorithm) {
+
+int process_address(FILE *backing_store, int virtual_address, const char *page_algorithm,const char *tlb_algorithm) {
     int page = get_page_number(virtual_address);
     int frame;
     int tlb_index;
@@ -186,6 +221,7 @@ int process_address(FILE *backing_store, int virtual_address, const char *algori
         if (page_table[page].valid &&
             page_table[page].frame == frame) {
             tlb_hits++;
+            tlb[tlb_index].last_used = access_counter;
         } else {
             tlb[tlb_index].valid = 0;
             tlb_index = -1;
@@ -196,7 +232,7 @@ int process_address(FILE *backing_store, int virtual_address, const char *algori
         if (page_table[page].valid) {
             frame = page_table[page].frame;
         } else {
-            frame = load_page(backing_store, page, algorithm);
+            frame = load_page(backing_store, page, page_algorithm);
 
             if (frame == -1) {
                 return -1;
@@ -205,7 +241,7 @@ int process_address(FILE *backing_store, int virtual_address, const char *algori
             page_faults++;
         }
 
-        insert_tlb(page, frame);
+        insert_tlb(page, frame, tlb_algorithm);
     }
 
     page_table[page].last_used = access_counter;
@@ -216,7 +252,8 @@ int process_address(FILE *backing_store, int virtual_address, const char *algori
 
     translated_addresses++;
 
-    printf("Virtual address: %d Physical address: %d Value: %d\n", virtual_address, physical_address, value);
+    printf("Virtual address: %d Physical address: %d Value: %d\n",
+           virtual_address, physical_address, value);
 
     return 0;
 }
@@ -307,7 +344,7 @@ int main(int argc, char *argv[]) {
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
         int endereco = (int)strtol(linha, NULL, 10);
 
-        if (process_address(backing_store, endereco, argv[2]) == -1) {
+        if (process_address(backing_store, endereco, argv[2], argv[3]) == -1) {
             fprintf(stderr, "Erro: memoria fisica cheia.\n");
             fclose(backing_store);
             fclose(arquivo);
