@@ -1,9 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
+#include <limits.h>
 
 #define PAGE_SIZE 256
 #define PAGE_COUNT 256
@@ -35,6 +34,8 @@ int next_fifo_frame = 0;
 int page_faults = 0;
 int translated_addresses = 0;
 
+unsigned long access_counter = 0;
+
 
 void initialize_memory(void) {
     for (int i = 0; i < PAGE_COUNT; i++) {
@@ -58,7 +59,26 @@ void initialize_memory(void) {
     page_faults = 0;
     translated_addresses = 0;
     next_fifo_frame = 0;
+    access_counter = 0;
 }
+
+
+int select_lru_frame(void) {
+    unsigned long oldest_access = ULONG_MAX;
+    int selected_frame = -1;
+
+    for (int i = 0; i < PAGE_COUNT; i++) {
+        if (page_table[i].valid &&
+            page_table[i].last_used < oldest_access) {
+
+            oldest_access = page_table[i].last_used;
+            selected_frame = page_table[i].frame;
+        }
+    }
+
+    return selected_frame;
+}
+
 
 
 int load_page(FILE *backing_store, int page, const char *algorithm) {
@@ -69,18 +89,13 @@ int load_page(FILE *backing_store, int page, const char *algorithm) {
     } else {
         if (strcmp(algorithm, "fifo") == 0) {
             frame = next_fifo_frame;
-
             next_fifo_frame = (next_fifo_frame + 1) % FRAME_COUNT;
         } else {
-            return -1;
+            frame = select_lru_frame();
         }
 
-        for (int i = 0; i < PAGE_COUNT; i++) {
-            if (page_table[i].valid && page_table[i].frame == frame) {
-                page_table[i].valid = 0;
-                page_table[i].frame = -1;
-                break;
-            }
+        if (frame == -1) {
+            return -1;
         }
     }
 
@@ -88,12 +103,26 @@ int load_page(FILE *backing_store, int page, const char *algorithm) {
         return -1;
     }
 
-    if (fread(physical_memory[frame], 1, PAGE_SIZE, backing_store) != PAGE_SIZE) {
+    unsigned char buffer[PAGE_SIZE];
+
+    if (fread(buffer, 1, PAGE_SIZE, backing_store) != PAGE_SIZE) {
         return -1;
     }
 
+    for (int i = 0; i < PAGE_COUNT; i++) {
+        if (page_table[i].valid && page_table[i].frame == frame) {
+            page_table[i].valid = 0;
+            page_table[i].frame = -1;
+            break;
+        }
+    }
+
+    memcpy(physical_memory[frame], buffer, PAGE_SIZE);
+
     page_table[page].frame = frame;
     page_table[page].valid = 1;
+    page_table[page].loaded_at = access_counter;
+    page_table[page].last_used = access_counter;
 
     if (next_free_frame < FRAME_COUNT) {
         next_free_frame++;
@@ -118,9 +147,12 @@ int translate_address(int virtual_address, int frame) {
 }
 
 
+
 int process_address(FILE *backing_store, int virtual_address, const char *algorithm) {
     int page = get_page_number(virtual_address);
     int frame;
+
+    access_counter++;
 
     if (page_table[page].valid) {
         frame = page_table[page].frame;
@@ -134,16 +166,20 @@ int process_address(FILE *backing_store, int virtual_address, const char *algori
         page_faults++;
     }
 
+    page_table[page].last_used = access_counter;
+
     int physical_address = translate_address(virtual_address, frame);
     int offset = get_offset(virtual_address);
     int value = physical_memory[frame][offset];
 
     translated_addresses++;
 
-    printf("Virtual address: %d Physical address: %d Value: %d\n", virtual_address, physical_address, value);
+    printf("Virtual address: %d Physical address: %d Value: %d\n",
+           virtual_address, physical_address, value);
 
     return 0;
 }
+
 
 
 int main(int argc, char *argv[]) {
