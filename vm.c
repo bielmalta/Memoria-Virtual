@@ -33,6 +33,8 @@ int next_free_frame = 0;
 int next_fifo_frame = 0;
 int page_faults = 0;
 int translated_addresses = 0;
+int tlb_hits = 0;
+int next_tlb_entry = 0;
 
 unsigned long access_counter = 0;
 
@@ -60,6 +62,8 @@ void initialize_memory(void) {
     translated_addresses = 0;
     next_fifo_frame = 0;
     access_counter = 0;
+    tlb_hits = 0;
+    next_tlb_entry = 0;
 }
 
 
@@ -147,23 +151,61 @@ int translate_address(int virtual_address, int frame) {
 }
 
 
+int search_tlb(int page) {
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (tlb[i].valid && tlb[i].page == page) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+void insert_tlb(int page, int frame) {
+    int index = next_tlb_entry;
+
+    tlb[index].page = page;
+    tlb[index].frame = frame;
+    tlb[index].valid = 1;
+
+    next_tlb_entry = (next_tlb_entry + 1) % TLB_SIZE;
+}
 
 int process_address(FILE *backing_store, int virtual_address, const char *algorithm) {
     int page = get_page_number(virtual_address);
     int frame;
+    int tlb_index;
 
     access_counter++;
 
-    if (page_table[page].valid) {
-        frame = page_table[page].frame;
-    } else {
-        frame = load_page(backing_store, page, algorithm);
+    tlb_index = search_tlb(page);
 
-        if (frame == -1) {
-            return -1;
+    if (tlb_index != -1) {
+        frame = tlb[tlb_index].frame;
+
+        if (page_table[page].valid &&
+            page_table[page].frame == frame) {
+            tlb_hits++;
+        } else {
+            tlb[tlb_index].valid = 0;
+            tlb_index = -1;
+        }
+    }
+
+    if (tlb_index == -1) {
+        if (page_table[page].valid) {
+            frame = page_table[page].frame;
+        } else {
+            frame = load_page(backing_store, page, algorithm);
+
+            if (frame == -1) {
+                return -1;
+            }
+
+            page_faults++;
         }
 
-        page_faults++;
+        insert_tlb(page, frame);
     }
 
     page_table[page].last_used = access_counter;
@@ -174,13 +216,10 @@ int process_address(FILE *backing_store, int virtual_address, const char *algori
 
     translated_addresses++;
 
-    printf("Virtual address: %d Physical address: %d Value: %d\n",
-           virtual_address, physical_address, value);
+    printf("Virtual address: %d Physical address: %d Value: %d\n", virtual_address, physical_address, value);
 
     return 0;
 }
-
-
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {
@@ -285,6 +324,7 @@ int main(int argc, char *argv[]) {
 
     printf("Number of Translated Addresses = %d\n", translated_addresses);
     printf("Page Faults = %d\n", page_faults);
+    printf("TLB Hits = %d\n", tlb_hits);
 
     fclose(backing_store);
     fclose(arquivo);
