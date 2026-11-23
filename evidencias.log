@@ -1,0 +1,1236 @@
+Script started on 2026-11-19 09:17:51-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="179" LINES="16"]
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ date
+[?2004l
+Thu Nov 19 09:17:56 -03 2026
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ whoami
+[?2004l
+bielmalta
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ pwd
+[?2004l
+/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+Erro: endereco invalido.
+1
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mprintf '%s\n' '16916' '-10' '30198' > teste_invalido.txt[27m
+
+[7m./vm teste_invalido.txt lru fifo[27m
+
+[7mecho $?[27m[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ printf '%s\n' '16916' '-10' '30198' > teste_invalido.txt
+
+./vm teste_invalido.txt lru fifo
+
+echo $?
+[?2004l
+Erro: endereco invalido.
+1
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mprintf '%s\n' '16916' 'abc' '30198' > teste_invalido.txt[27m
+
+[7m./vm teste_invalido.txt lru fifo[27m
+
+[7mecho $?[27m[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ printf '%s\n' '16916' 'abc' '30198' > teste_invalido.txt
+
+./vm teste_invalido.txt lru fifo
+
+echo $?
+[?2004l
+Erro: endereco invalido.
+1
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mrm -f teste_invalido.txt[27mrm -f teste_invalido.txt
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mhead -n 5 addresses.txt[27mhead -n 5 addresses.txt
+[?2004l
+%PDF-1.5
+%����
+1 0 obj
+<<
+/Lang (en-US)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mwc -l -w addresses.txt[27m[1Pwc -l -w addresses.tx[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7mwc -l -w addresses.txt[27mwc -l -w addresses.txt
+[?2004l
+  278   765 addresses.txt
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7msudo apt install poppler-utils[27msudo apt install poppler-utils
+[?2004l
+[sudo] password for bielmalta: 
+
+Reading package lists... 0%
+
+Reading package lists... 100%
+
+Reading package lists... Done
+
+
+Building dependency tree... 0%
+
+Building dependency tree... 0%
+
+Building dependency tree... 50%
+
+Building dependency tree... 50%
+
+Building dependency tree... Done
+
+
+Reading state information... 0% 
+
+Reading state information... 0%
+
+Reading state information... Done
+
+The following additional packages will be installed:
+  libopenjp2-7 libpoppler134 poppler-data
+Suggested packages:
+  ghostscript fonts-japanese-mincho | fonts-ipafont-mincho fonts-japanese-gothic | fonts-ipafont-gothic fonts-arphic-ukai fonts-arphic-uming fonts-nanum
+The following NEW packages will be installed:
+  libopenjp2-7 libpoppler134 poppler-data poppler-utils
+0 upgraded, 4 newly installed, 0 to remove and 55 not upgraded.
+Need to get 3563 kB of archives.
+After this operation, 18.3 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+[33m
+0% [Working][0m[33m
+0% [Connecting to archive.ubuntu.com (91.189.91.83)][0m[33m
+0% [Connecting to archive.ubuntu.com (185.125.190.82)][0m[33m
+                                                      
+0% [Connecting to archive.ubuntu.com (91.189.92.23)][0m[33m
+0% [Connecting to archive.ubuntu.com (185.125.190.81)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m[33m
+0% [Connecting to archive.ubuntu.com (2620:2d:4000:1::103)][0m
+                                                           
+Ign:1 http://archive.ubuntu.com/ubuntu noble/main amd64 poppler-data all 0.4.12-1
+[33m
+                                                           
+0% [Working][0m
+            
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libopenjp2-7 amd64 2.5.0-2ubuntu0.5
+
+            
+Ign:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpoppler134 amd64 24.02.0-1ubuntu9.11
+
+            
+Ign:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 poppler-utils amd64 24.02.0-1ubuntu9.11
+[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m
+            
+Ign:1 http://archive.ubuntu.com/ubuntu noble/main amd64 poppler-data all 0.4.12-1
+[33m
+0% [Working][0m
+            
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libopenjp2-7 amd64 2.5.0-2ubuntu0.5
+[33m
+0% [Working][0m
+            
+Ign:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpoppler134 amd64 24.02.0-1ubuntu9.11
+[33m
+0% [Working][0m
+            
+Ign:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 poppler-utils amd64 24.02.0-1ubuntu9.11
+[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m
+            
+Ign:1 http://archive.ubuntu.com/ubuntu noble/main amd64 poppler-data all 0.4.12-1
+[33m
+0% [Working][0m
+            
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libopenjp2-7 amd64 2.5.0-2ubuntu0.5
+[33m
+0% [Working][0m
+            
+Ign:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpoppler134 amd64 24.02.0-1ubuntu9.11
+[33m
+0% [Working][0m
+            
+Ign:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 poppler-utils amd64 24.02.0-1ubuntu9.11
+[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m[33m
+0% [Working][0m
+            
+Err:1 http://archive.ubuntu.com/ubuntu noble/main amd64 poppler-data all 0.4.12-1
+  Cannot initiate the connection to archive.ubuntu.com:80 (2a06:bc80:0:1000::16). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4002:1::103). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2a06:bc80:0:1000::18). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4002:1::102). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4000:1::102). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4002:1::101). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4000:1::101). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2a06:bc80:0:1000::17). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4000:1::103). - connect (101: Network is unreachable) Could not connect to archive.ubuntu.com:80 (91.189.92.24), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.83), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.83), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.82), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.92.22), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.92.23), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.81), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.81), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.82), connection timed out
+[33m
+0% [Working][0m
+            
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libopenjp2-7 amd64 2.5.0-2ubuntu0.5
+[33m
+0% [Working][0m
+            
+Ign:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpoppler134 amd64 24.02.0-1ubuntu9.11
+
+            
+Ign:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 poppler-utils amd64 24.02.0-1ubuntu9.11
+[33m
+0% [Working][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.81)][0m[33m
+                                                       
+0% [Connecting to security.ubuntu.com (91.189.92.22)][0m[33m
+0% [Connecting to security.ubuntu.com (91.189.91.82)][0m[33m
+0% [Connecting to security.ubuntu.com (91.189.91.83)][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4002:1::102)][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4002:1::102)][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4002:1::102)][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4002:1::102)][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4002:1::102)][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4002:1::102)][0m[33m
+                                                            
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Connecting to security.ubuntu.com (91.189.91.82)][0m[33m
+0% [Connecting to security.ubuntu.com (91.189.91.83)][0m[33m
+                                                     
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m
+                        
+Err:2 http://security.ubuntu.com/ubuntu noble-updates/main amd64 libopenjp2-7 amd64 2.5.0-2ubuntu0.5
+  Cannot initiate the connection to archive.ubuntu.com:80 (2a06:bc80:0:1000::16). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4002:1::103). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2a06:bc80:0:1000::18). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4002:1::102). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4000:1::102). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4002:1::101). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4000:1::101). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2a06:bc80:0:1000::17). - connect (101: Network is unreachable) Cannot initiate the connection to archive.ubuntu.com:80 (2620:2d:4000:1::103). - connect (101: Network is unreachable)
+[33m
+                        
+0% [Working][0m[33m
+0% [Connecting to security.ubuntu.com (2620:2d:4000:1::102)][0m[33m
+                                                            
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.83)][0m[33m
+                                                       
+0% [Connecting to security.ubuntu.com (91.189.92.23)][0m[33m
+0% [Connecting to security.ubuntu.com (91.189.91.81)][0m[33m
+0% [Connecting to security.ubuntu.com (91.189.92.24)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+0% [Connecting to security.ubuntu.com (185.125.190.82)][0m[33m
+                                                       
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m[33m
+0% [Waiting for headers][0m^C
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mwc -l -w addresses.txt[27mwc -l -w addresses.txt
+[?2004l
+ 999 1000 addresses.txt
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7msed -i -e '$a\' addresses.txt[27msed -i -e '$a\' addresses.txt
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mwc -l -w addresses.txt[27mwc -l -w addresses.txt
+[?2004l
+1000 1000 addresses.txt
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.c makefile
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "make [Kfile e estrutu[Kuras iniciaais[K[K[Kis"
+[?2004l
+[main d90ea6a] makefile e estruturas iniciais
+ 2 files changed, 114 insertions(+)
+ create mode 100644 makefile
+ create mode 100644 vm.c
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ que push origin main
+[?2004l
+Command 'que' not found, did you mean:
+  command 'rue' from snap darkdimension-rue (1.0.7)
+  command 'vue' from snap vue (3.3.0)
+  command 'qube' from deb avogadro-utils (1.98.1-2)
+  command 'due' from deb due (3.0.0-1)
+See 'snap info <snapname>' for additional versions.
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  25% (1/4)
+Compressing objects:  50% (2/4)
+Compressing objects:  75% (3/4)
+Compressing objects: 100% (4/4)
+Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)
+Writing objects:  50% (2/4)
+Writing objects:  75% (3/4)
+Writing objects: 100% (4/4)
+Writing objects: 100% (4/4), 1.12 KiB | 15.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/bielmalta/Memoria-Virtual.git
+   31c53fb..d90ea6a  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo 
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ echo $/[K/[K?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make ce[Klean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ mae[Kke
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+Pagina: 66
+Offset: 20
+Endereco fisico: 20
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mmake[27m
+
+[7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+
+./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make cçlean[K[K[K[K[Klean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.cx[K
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "implementando calculo de enderecos fisicos"
+[?2004l
+[main da7ec1a] implementando calculo de enderecos fisicos
+ 1 file changed, 64 insertions(+)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 793 bytes | 12.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   d90ea6a..da7ec1a  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mprintf '16916\n62493\n30198\n' > teste_paginas.txt[27mprintf '16916\n62493\n30198\n' > teste_paginas.txt
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm teste_paginas.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm teste_paginas.txt lru fifo
+
+echo $?
+[?2004l
+Virtual address: 16916 Physical address: 20 Value: 0
+Virtual address: 62493 Physical address: 285 Value: 0
+Virtual address: 30198 Physical address: 758 Value: 29
+Number of Translated Addresses = 3
+Page Faults = 3
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mprintf '16916\n16917\n62493\n' > teste_paginas.txt[27m
+
+[7m./vm teste_paginas.txt lru fifo[27m
+
+[7mecho $?[27m[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ printf '16916\n16917\n62493\n' > teste_paginas.txt
+
+./vm teste_paginas.txt lru fifo
+
+echo $?
+[?2004l
+Virtual address: 16916 Physical address: 20 Value: 0
+Virtual address: 16917 Physical address: 21 Value: 0
+Virtual address: 62493 Physical address: 285 Value: 0
+Number of Translated Addresses = 3
+Page Faults = 2
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.c
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "implementando carregamento de pagoi[K[Kinas e pagef[K foults[K[K[K[K[Kaulty[Ks"
+[?2004l
+[main dca5b7f] implementando carregamento de paginas e page faults
+ 1 file changed, 69 insertions(+), 1 deletion(-)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 898 bytes | 32.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   da7ec1a..dca5b7f  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt fifo fifo > resultado_fifo.txt[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt fifo fifo > resultado_fifo.txt
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mtail -n 5 resultado_fifo.txt[27mtail -n 5 resultado_fifo.txt
+[?2004l
+Virtual address: 9929 Physical address: 6089 Value: 0
+Virtual address: 45563 Physical address: 6395 Value: 126
+Virtual address: 12107 Physical address: 6475 Value: -46
+Number of Translated Addresses = 1000
+Page Faults = 538
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mwc -l resultado_fifo.txt[27mwc -l resultado_fifo.txt
+[?2004l
+1002 resultado_fifo.txt
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm teste_paginas.txt fifo fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm teste_paginas.txt fifo fifo
+
+echo $?
+[?2004l
+Virtual address: 16916 Physical address: 20 Value: 0
+Virtual address: 16917 Physical address: 21 Value: 0
+Virtual address: 62493 Physical address: 285 Value: 0
+Number of Translated Addresses = 3
+Page Faults = 2
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.c
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "implementar substituição de [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksubstituiç[Kcao de pagoii[K[K[Kinas fifo"
+[?2004l
+[main 46aafc8] substituicao de paginas fifo
+ 1 file changed, 31 insertions(+), 11 deletions(-)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 589 bytes | 28.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   dca5b7f..46aafc8  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo > resultado_lru.txt[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo > resultado_lru.txt
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mtail -n 5 resultado_lru.txt[27mtail -n 5 resultado_lru.txt
+[?2004l
+Virtual address: 9929 Physical address: 969 Value: 0
+Virtual address: 45563 Physical address: 507 Value: 126
+Virtual address: 12107 Physical address: 17739 Value: -46
+Number of Translated Addresses = 1000
+Page Faults = 539
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mwc -l resultado_lru.txt[27mwc -l resultado_lru.txt
+[?2004l
+1002 resultado_lru.txt
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt fifo fifo > resultado_fifo.txt[27m
+
+[7mtail -n 2 resultado_fifo.txt[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt fifo fifo > resultado_fifo.txt
+
+tail -n 2 resultado_fifo.txt
+[?2004l
+Number of Translated Addresses = 1000
+Page Faults = 538
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ gitr add[K[K[K[K[K[Ka[Kt add vm.c
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "implementando substituicao de paginas lru"
+[?2004l
+[main 239136c] implementando substituicao de paginas lru
+ 1 file changed, 48 insertions(+), 12 deletions(-)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 738 bytes | 17.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   46aafc8..239136c  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make [K
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo > resultado_tlb.txt[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo > resultado_tlb.txt
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mtail -n 3 resultado_tlb.txt[27mtail -n 3 resultado_tlb.txt
+[?2004l
+Number of Translated Addresses = 1000
+Page Faults = 539
+TLB Hits = 54
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mprintf '16916\n16917\n62493\n' > teste_tlb.txt[27m
+
+[7m./vm teste_tlb.txt lru fifo[27m
+
+[7mecho $?[27m[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ printf '16916\n16917\n62493\n' > teste_tlb.txt
+
+./vm teste_tlb.txt lru fifo
+
+echo $?
+[?2004l
+Virtual address: 16916 Physical address: 20 Value: 0
+Virtual address: 16917 Physical address: 21 Value: 0
+Virtual address: 62493 Physical address: 285 Value: 0
+Number of Translated Addresses = 3
+Page Faults = 2
+TLB Hits = 1
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.x[Kc
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "consulta e insercao na tlb"
+[?2004l
+[main 3e2effa] consulta e insercao na tlb
+ 1 file changed, 51 insertions(+), 11 deletions(-)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 719 bytes | 27.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   239136c..3e2effa  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt fifo fifo > resultado_fifo_fifo.txt[27m
+
+[7m./vm addresses.txt fifo lru > resultado_fifo_lru.txt[27m
+
+[7m./vm addresses.txt lru fifo > resultado_lru_fifo.txt[27m
+
+[7m./vm addresses.txt lru lru > resultado_lru_lru.txt[27m[A[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt fifo fifo > resultado_fifo_fifo.txt
+
+./vm addresses.txt fifo lru > resultado_fifo_lru.txt
+
+./vm addresses.txt lru fifo > resultado_lru_fifo.txt
+
+./vm addresses.txt lru lru > resultado_lru_lru.txt
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mfor arquivo in resultado_*.txt; do[27m
+
+[7m    echo "=== $arquivo ==="[27m
+
+[7m    tail -n 3 "$arquivo"[27m
+
+[7mdone[27m[A[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ for arquivo in resultado_*.txt; do
+
+    echo "=== $arquivo ==="
+
+    tail -n 3 "$arquivo"
+
+done
+[?2004l
+=== resultado_fifo.txt ===
+Virtual address: 12107 Physical address: 6475 Value: -46
+Number of Translated Addresses = 1000
+Page Faults = 538
+=== resultado_fifo_fifo.txt ===
+Number of Translated Addresses = 1000
+Page Faults = 538
+TLB Hits = 54
+=== resultado_fifo_lru.txt ===
+Number of Translated Addresses = 1000
+Page Faults = 538
+TLB Hits = 55
+=== resultado_lru.txt ===
+Virtual address: 12107 Physical address: 17739 Value: -46
+Number of Translated Addresses = 1000
+Page Faults = 539
+=== resultado_lru_fifo.txt ===
+Number of Translated Addresses = 1000
+Page Faults = 539
+TLB Hits = 54
+=== resultado_lru_lru.txt ===
+Number of Translated Addresses = 1000
+Page Faults = 539
+TLB Hits = 55
+=== resultado_tlb.txt ===
+Number of Translated Addresses = 1000
+Page Faults = 539
+TLB Hits = 54
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm teste_tlb.txt lru lru[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm teste_tlb.txt lru lru
+
+echo $?
+[?2004l
+Virtual address: 16916 Physical address: 20 Value: 0
+Virtual address: 16917 Physical address: 21 Value: 0
+Virtual address: 62493 Physical address: 285 Value: 0
+Number of Translated Addresses = 3
+Page Faults = 2
+TLB Hits = 1
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ 
+[K
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make cçlean[K[K[K[K[Klean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.c
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commit -m "criando substituicao da tlb com fifo e lru"
+[?2004l
+[main dd0ef06] criando substituicao da tlb com fifo e lru
+ 1 file changed, 46 insertions(+), 9 deletions(-)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 699 bytes | 41.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   3e2effa..dd0ef06  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo > resultado_threads.txt[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo > resultado_threads.txt
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mtail -n 3 resultado_threads.txt[27mtail -n 3 resultado_threads.txt
+[?2004l
+Number of Translated Addresses = 1000
+Page Faults = 539
+TLB Hits = 54
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mdiff resultado_lru_fifo.txt resultado_threads.txt[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ diff resultado_lru_fifo.txt resultado_threads.txt
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo > resultado_threads_2.txt[27m
+
+[7mdiff resultado_threads.txt resultado_threads_2.txt[27m
+
+[7mecho $?[27m[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo > resultado_threads_2.txt
+
+diff resultado_threads.txt resultado_threads_2.txt
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make clean
+[?2004l
+rm -f vm.o vm
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git add vm.c
+[?2004l
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git commmti[K[K[Kit -m "busca paralela na tlb com phtreads[K[K[K[K[K[K[Kthr[Ke[Kreads"
+[?2004l
+[main 9cc8a33] busca paralela na tlb com pthreads
+ 1 file changed, 63 insertions(+), 4 deletions(-)
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ git push origin main
+[?2004l
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects:  33% (1/3)
+Compressing objects:  66% (2/3)
+Compressing objects: 100% (3/3)
+Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)
+Writing objects:  66% (2/3)
+Writing objects: 100% (3/3)
+Writing objects: 100% (3/3), 821 bytes | 12.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[K
+remote: Resolving deltas:  50% (1/2)[K
+remote: Resolving deltas: 100% (2/2)[K
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/bielmalta/Memoria-Virtual.git
+   dd0ef06..9cc8a33  main -> main
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ make
+[?2004l
+gcc -Wall -Wextra -std=c11 -pthread -c vm.c -o vm.o
+gcc vm.o -o vm -pthread
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7m./vm addresses.txt lru fifo[27m
+
+[7mecho $?[27m[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ./vm addresses.txt lru fifo
+
+echo $?
+[?2004l
+0
+[?2004h]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ [7mls -lh correct.txt[27m
+
+[7mhead -n 5 correct.txt[27m
+
+[7mtail -n 5 correct.txt[27m
+
+[7mwc -l correct.txt[27m[A[A[A
+]0;bielmalta@AlienGabriel: /mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[01;32mbielmalta@AlienGabriel[00m:[01;34m/mnt/c/Users/bielm/OneDrive/Documentos/infra software/Memoria-Virtual[00m$ ls -lh correct.txt
+
+head -n 5 correct.txt
+
+tail -n 5 correct.txt
+
+wc -l correct.txt
+[?2004l
+-rwxrwxrwx 1 bielmalta bielmalta 63K Nov 23 15:21 [0m[01;32mcorrect.txt[0m
+Virtual address: 16916 TLB: 0 Physical address: 20 Value: 0
+Virtual address: 62493 TLB: 1 Physical address: 285 Value: 0
+Virtual address: 30198 TLB: 2 Physical address: 758 Value: 29
+Virtual address: 53683 TLB: 3 Physical address: 947 Value: 108
+Virtual address: 40185 TLB: 4 Physical address: 1273 Value: 0
+Number of Translated Addresses = 1000
+Page Faults = 539
+Page Fault Rate = 0.539
+TLB Hits = 54
+TLB Hit Rate = 0.054
+1005 correct.txt
+exit
+[?2004lexit
+
+Script done on 2026-11-23 15:23:11-03:00 [COMMAND_EXIT_CODE="127"]
