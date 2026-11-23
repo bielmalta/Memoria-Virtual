@@ -242,8 +242,7 @@ int select_lru_tlb(void) {
     return index;
 }
 
-
-void insert_tlb(int page, int frame, const char *algorithm) {
+int insert_tlb(int page, int frame, const char *algorithm) {
     int index;
 
     if (strcmp(algorithm, "fifo") == 0) {
@@ -258,16 +257,17 @@ void insert_tlb(int page, int frame, const char *algorithm) {
     tlb[index].valid = 1;
     tlb[index].loaded_at = access_counter;
     tlb[index].last_used = access_counter;
+
+    return index;
 }
 
 
-int process_address(FILE *backing_store, int virtual_address, const char *page_algorithm,const char *tlb_algorithm) {
+int process_address(FILE *backing_store, FILE *output, int virtual_address, const char *page_algorithm, const char *tlb_algorithm) {
     int page = get_page_number(virtual_address);
     int frame;
     int tlb_index;
 
     access_counter++;
-
     tlb_index = search_tlb(page);
 
     if (tlb_index == -2) {
@@ -292,17 +292,13 @@ int process_address(FILE *backing_store, int virtual_address, const char *page_a
             frame = page_table[page].frame;
         } else {
             frame = load_page(backing_store, page, page_algorithm);
-
             if (frame == -1) {
                 return -1;
             }
-
             page_faults++;
         }
-
-        insert_tlb(page, frame, tlb_algorithm);
+        tlb_index = insert_tlb(page, frame, tlb_algorithm);
     }
-
     page_table[page].last_used = access_counter;
 
     int physical_address = translate_address(virtual_address, frame);
@@ -311,8 +307,9 @@ int process_address(FILE *backing_store, int virtual_address, const char *page_a
 
     translated_addresses++;
 
-    printf("Virtual address: %d Physical address: %d Value: %d\n",
-           virtual_address, physical_address, value);
+    if (fprintf(output,"Virtual address: %d TLB: %d Physical address: %d Value: %d\n", virtual_address, tlb_index, physical_address, value) < 0) {
+        return -1;
+    }
 
     return 0;
 }
@@ -400,10 +397,20 @@ int main(int argc, char *argv[]) {
 
     initialize_memory();
 
+    FILE *output = fopen("correct.txt", "w");
+
+    if (output == NULL) {
+        fprintf(stderr, "Erro: nao foi possivel criar correct.txt.\n");
+        fclose(backing_store);
+        fclose(arquivo);
+        return EXIT_FAILURE;
+    }
+
+
     while (fgets(linha, sizeof(linha), arquivo) != NULL) {
         int endereco = (int)strtol(linha, NULL, 10);
 
-        if (process_address(backing_store, endereco, argv[2], argv[3]) == -1) {
+        if (process_address(backing_store, output, endereco, argv[2], argv[3]) == -1) {
             fprintf(stderr, "Erro: falha no processamento do endereco.\n");
             fclose(backing_store);
             fclose(arquivo);
@@ -418,9 +425,21 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    printf("Number of Translated Addresses = %d\n", translated_addresses);
-    printf("Page Faults = %d\n", page_faults);
-    printf("TLB Hits = %d\n", tlb_hits);
+    double page_fault_rate = (double)page_faults / translated_addresses;
+    double tlb_hit_rate = (double)tlb_hits / translated_addresses;
+
+    fprintf(output, "Number of Translated Addresses = %d\n", translated_addresses);
+    fprintf(output, "Page Faults = %d\n", page_faults);
+    fprintf(output, "Page Fault Rate = %.3f\n", page_fault_rate);
+    fprintf(output, "TLB Hits = %d\n", tlb_hits);
+    fprintf(output, "TLB Hit Rate = %.3f\n", tlb_hit_rate);
+
+    if (fclose(output) != 0) {
+        fprintf(stderr, "Erro: falha ao salvar correct.txt.\n");
+        fclose(backing_store);
+        fclose(arquivo);
+        return EXIT_FAILURE;
+    }
 
     fclose(backing_store);
     fclose(arquivo);
