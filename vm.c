@@ -3,6 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <limits.h>
+#include <pthread.h>
+
 
 #define PAGE_SIZE 256
 #define PAGE_COUNT 256
@@ -158,16 +160,69 @@ int translate_address(int virtual_address, int frame) {
     return frame * PAGE_SIZE + offset;
 }
 
+typedef struct {
+    int page;
+    int index;
+    int found;
+} TLBSearchArgs;
+
+
+void *search_tlb_entry(void *arg) {
+    TLBSearchArgs *data = (TLBSearchArgs *)arg;
+
+    int index = data->index;
+
+    if (tlb[index].valid && tlb[index].page == data->page) {
+        data->found = 1;
+    } else {
+        data->found = 0;
+    }
+
+    return NULL;
+}
+
 
 int search_tlb(int page) {
+    pthread_t threads[TLB_SIZE];
+    TLBSearchArgs args[TLB_SIZE];
+
+    int created = 0;
+    int result = -1;
+
     for (int i = 0; i < TLB_SIZE; i++) {
-        if (tlb[i].valid && tlb[i].page == page) {
-            return i;
+        args[i].page = page;
+        args[i].index = i;
+        args[i].found = 0;
+
+        if (pthread_create(&threads[i], NULL,
+                           search_tlb_entry, &args[i]) != 0) {
+            for (int j = 0; j < created; j++) {
+                pthread_join(threads[j], NULL);
+            }
+
+            fprintf(stderr, "Erro: falha ao criar thread.\n");
+            return -2;
+        }
+
+        created++;
+    }
+
+    for (int i = 0; i < created; i++) {
+        if (pthread_join(threads[i], NULL) != 0) {
+            fprintf(stderr, "Erro: falha ao aguardar thread.\n");
+            return -2;
         }
     }
 
-    return -1;
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (args[i].found) {
+            result = i;
+            break;
+        }
+    }
+    return result;
 }
+
 
 int select_lru_tlb(void) {
     int index = -1;
@@ -214,6 +269,10 @@ int process_address(FILE *backing_store, int virtual_address, const char *page_a
     access_counter++;
 
     tlb_index = search_tlb(page);
+
+    if (tlb_index == -2) {
+        return -1;
+    }
 
     if (tlb_index != -1) {
         frame = tlb[tlb_index].frame;
@@ -345,7 +404,7 @@ int main(int argc, char *argv[]) {
         int endereco = (int)strtol(linha, NULL, 10);
 
         if (process_address(backing_store, endereco, argv[2], argv[3]) == -1) {
-            fprintf(stderr, "Erro: memoria fisica cheia.\n");
+            fprintf(stderr, "Erro: falha no processamento do endereco.\n");
             fclose(backing_store);
             fclose(arquivo);
             return EXIT_FAILURE;
