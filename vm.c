@@ -292,7 +292,8 @@ int process_address(FILE *backing_store, FILE *output, int virtual_address, cons
         fprintf(stderr, "Erro: falha ao escrever em correct.txt.\n");
         return -1;
     }
-
+    printf("Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
+       virtual_address, tlb_index, physical_address, value);
     translated_addresses++;
     return 0;
 }
@@ -434,7 +435,13 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Erro: falha ao escrever as estatisticas em correct.txt.\n");
         goto cleanup;
     }
-
+    printf("Number of Translated Addresses = %lu\n"
+       "Page Faults = %lu\n"
+       "Page Fault Rate = %.3f\n"
+       "TLB Hits = %lu\n"
+       "TLB Hit Rate = %.3f\n",
+       translated_addresses, page_faults, page_fault_rate,
+       tlb_hits, tlb_hit_rate);
     exit_status = EXIT_SUCCESS;
 
 cleanup:
